@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player name:</strong>
+  <%= @serf.player_name %>
+</p>
+
+<p>
+  <strong>Time 1:</strong>
+  <%= @serf.time_1 %>
+</p>
+
+<p>
+  <strong>Time 2:</strong>
+  <%= @serf.time_2 %>
+</p>
+
+<p>
+  <strong>Serve length:</strong>
+  <%= @serf.serve_length %>
+</p>
+
+<p>
+  <strong>Serve spin:</strong>
+  <%= @serf.serve_spin %>
+</p>
+
+<p>
+  <strong>Serve direction:</strong>
+  <%= @serf.serve_direction %>
+</p>
+
+<p>
+  <strong>Player grip:</strong>
+  <%= @serf.player_grip %>
+</p>
+
+<%= link_to 'Edit', edit_serf_path(@serf) %> |
+<%= link_to 'Back', serves_path %>

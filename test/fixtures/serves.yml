@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_name: MyString
+  time_1: 9.99
+  time_2: 9.99
+  serve_length: MyString
+  serve_spin: MyString
+  serve_direction: MyString
+  player_grip: MyString
+
+two:
+  player_name: MyString
+  time_1: 9.99
+  time_2: 9.99
+  serve_length: MyString
+  serve_spin: MyString
+  serve_direction: MyString
+  player_grip: MyString

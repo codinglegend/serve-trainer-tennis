@@ -1,0 +1,39 @@
+<h1>Listing serves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player name</th>
+      <th>Time 1</th>
+      <th>Time 2</th>
+      <th>Serve length</th>
+      <th>Serve spin</th>
+      <th>Serve direction</th>
+      <th>Player grip</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @serves.each do |serf| %>
+      <tr>
+        <td><%= serf.player_name %></td>
+        <td><%= serf.time_1 %></td>
+        <td><%= serf.time_2 %></td>
+        <td><%= serf.serve_length %></td>
+        <td><%= serf.serve_spin %></td>
+        <td><%= serf.serve_direction %></td>
+        <td><%= serf.player_grip %></td>
+        <td><%= link_to 'Show', serf %></td>
+        <td><%= link_to 'Edit', edit_serf_path(serf) %></td>
+        <td><%= link_to 'Destroy', serf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Serve', new_serf_path %>
