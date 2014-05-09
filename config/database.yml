@@ -19,8 +19,9 @@ development:
   encoding: unicode
   database: servetrainer_development
   pool: 5
+  host: localhost
   username: servetrainer
-  password:
+  password:  servetrainer
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -48,13 +49,15 @@ test:
   encoding: unicode
   database: servetrainer_test
   pool: 5
+  host: localhost
   username: servetrainer
-  password:
+  password: servetrainer
 
 production:
   adapter: postgresql
   encoding: unicode
   database: servetrainer_production
   pool: 5
+  host: localhost
   username: servetrainer
-  password:
+  password: servetrainer
