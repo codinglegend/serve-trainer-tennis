@@ -1,25 +1,30 @@
 %p#notice= notice
 %p
   %strong Player name:
-  = @serf.player_name
+  = @serve.player_name
 %p
   %strong Time 1:
-  = @serf.time_1
+  = @serve.time_1
 %p
   %strong Time 2:
-  = @serf.time_2
+  = @serve.time_2
 %p
   %strong Serve length:
-  = @serf.serve_length
+  = @serve.serve_length
 %p
   %strong Serve spin:
-  = @serf.serve_spin
+  = @serve.serve_spin
 %p
   %strong Serve direction:
-  = @serf.serve_direction
+  = @serve.serve_direction
 %p
   %strong Player grip:
-  = @serf.player_grip
-= link_to 'Edit', edit_serf_path(@serf)
+  = @serve.player_grip
+
+%h4 Video
+%video{src: @serve.video.url}
+%br
+
+= link_to 'Edit', edit_serve_path(@serve)
 |
 \#{link_to 'Back', serves_path}

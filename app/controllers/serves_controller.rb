@@ -1,5 +1,5 @@
 class ServesController < ApplicationController
-  before_action :set_serf, only: [:show, :edit, :update, :destroy]
+  before_action :set_serve, only: [:show, :edit, :update, :destroy]
 
   # GET /serves
   # GET /serves.json
@@ -12,9 +12,15 @@ class ServesController < ApplicationController
   def show
   end
 
+  def show_next
+    serve_id = session[:serve_id] || 1
+    @serve = Serve.find(serve_id)
+    render 'question'
+  end
+
   # GET /serves/new
   def new
-    @serf = Serve.new
+    @serve = Serve.new
   end
 
   # GET /serves/1/edit
@@ -24,15 +30,15 @@ class ServesController < ApplicationController
   # POST /serves
   # POST /serves.json
   def create
-    @serf = Serve.new(serf_params)
+    @serve = Serve.new(serve_params)
 
     respond_to do |format|
-      if @serf.save
-        format.html { redirect_to @serf, notice: 'Serve was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @serf }
+      if @serve.save
+        format.html { redirect_to @serve, notice: 'Serve was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @serve }
       else
         format.html { render action: 'new' }
-        format.json { render json: @serf.errors, status: :unprocessable_entity }
+        format.json { render json: @serve.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +47,12 @@ class ServesController < ApplicationController
   # PATCH/PUT /serves/1.json
   def update
     respond_to do |format|
-      if @serf.update(serf_params)
-        format.html { redirect_to @serf, notice: 'Serve was successfully updated.' }
+      if @serve.update(serve_params)
+        format.html { redirect_to @serve, notice: 'Serve was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @serf.errors, status: :unprocessable_entity }
+        format.json { render json: @serve.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +60,7 @@ class ServesController < ApplicationController
   # DELETE /serves/1
   # DELETE /serves/1.json
   def destroy
-    @serf.destroy
+    @serve.destroy
     respond_to do |format|
       format.html { redirect_to serves_url }
       format.json { head :no_content }
@@ -63,12 +69,12 @@ class ServesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_serf
-      @serf = Serve.find(params[:id])
+    def set_serve
+      @serve = Serve.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def serf_params
-      params.require(:serf).permit(:player_name, :time_1, :time_2, :serve_length, :serve_spin, :serve_direction, :player_grip)
+    def serve_params
+      params.require(:serve).permit(:player_name, :time_1, :time_2, :serve_length, :serve_spin, :serve_direction, :player_grip, :video)
     end
 end

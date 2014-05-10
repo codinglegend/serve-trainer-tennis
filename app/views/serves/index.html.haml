@@ -13,17 +13,17 @@
       %th
       %th
   %tbody
-    - @serves.each do |serf|
+    - @serves.each do |serve|
       %tr
-        %td= serf.player_name
-        %td= serf.time_1
-        %td= serf.time_2
-        %td= serf.serve_length
-        %td= serf.serve_spin
-        %td= serf.serve_direction
-        %td= serf.player_grip
-        %td= link_to 'Show', serf
-        %td= link_to 'Edit', edit_serf_path(serf)
-        %td= link_to 'Destroy', serf, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Serve', new_serf_path
+        %td= serve.player_name
+        %td= serve.time_1
+        %td= serve.time_2
+        %td= serve.serve_length
+        %td= serve.serve_spin
+        %td= serve.serve_direction
+        %td= serve.player_grip
+        %td= link_to 'Show', serve
+        %td= link_to 'Edit', edit_serve_path(serve)
+        %td= link_to 'Destroy', serve, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+= link_to 'New Serve', new_serve_path

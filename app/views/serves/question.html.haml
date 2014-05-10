@@ -1,0 +1,11 @@
+.text-center
+  Serve #
+  = @serve.id
+
+.player-name.text-center
+  %strong Player:
+  = @serve.player_name
+
+%h4 Video
+%video{src: @serve.video.url, :'data-time-1' => @serve.time_1, :'data-time-2' => @serve.time_2 }
+%br
