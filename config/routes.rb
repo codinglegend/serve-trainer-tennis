@@ -1,7 +1,10 @@
 Servetrainer::Application.routes.draw do
-  resources :serves
+  resources :serves do
+  end
 
-  root 'serves#show_next'
+  get 'next' => 'serves#show_next', format: :json
+
+  root 'serves#quiz'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

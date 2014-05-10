@@ -1,9 +1,10 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: #222222;
-  color: #FFF0A5;
+  background-color: white;
+  color: #333333;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-size: 20px;
 }
 
 .container{
@@ -17,4 +18,52 @@ body{
 
 video{
   width: 100%;
+  margin-top: 20px;
+  background-color: black;
+}
+
+button{
+  background-color: #333333;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+}
+
+.answer-choices{
+  margin-top: 20px;
+}
+
+.answer-choices table{
+  width: 100%;
+}
+
+.answer-choices th{
+  padding: 5px;
+}
+
+.answer-choices th, .answer-choices td{
+  width: 33%;
+  font-size: 20px;
+}
+
+.answer-choices ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.answer-choices li{
+  margin: 5px 5% 5px 5%;
+  padding: 0;
+  width: 90%;
+  height: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.answer-choices li:hover, .answer-choices .toggled{
+  background-color: #333333;
+  color: white;
+  cursor: pointer;
 }

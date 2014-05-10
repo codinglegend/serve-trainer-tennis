@@ -12,10 +12,20 @@ class ServesController < ApplicationController
   def show
   end
 
+  def quiz
+  end
+
   def show_next
-    serve_id = session[:serve_id] || 1
-    @serve = Serve.find(serve_id)
-    render 'question'
+
+    total = Serve.count
+    offset = session[:serve_offset] || 0
+    if offset >= total
+      offset = 0
+    end
+    @serve = Serve.order(created_at: :asc).limit(1).offset(offset).first
+    session[:serve_offset] = offset + 1
+
+    render 'show_next.json'
   end
 
   # GET /serves/new
