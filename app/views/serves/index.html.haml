@@ -1,0 +1,29 @@
+%h1 Listing serves
+%table
+  %thead
+    %tr
+      %th Player name
+      %th Time 1
+      %th Time 2
+      %th Serve length
+      %th Serve spin
+      %th Serve direction
+      %th Player grip
+      %th
+      %th
+      %th
+  %tbody
+    - @serves.each do |serf|
+      %tr
+        %td= serf.player_name
+        %td= serf.time_1
+        %td= serf.time_2
+        %td= serf.serve_length
+        %td= serf.serve_spin
+        %td= serf.serve_direction
+        %td= serf.player_grip
+        %td= link_to 'Show', serf
+        %td= link_to 'Edit', edit_serf_path(serf)
+        %td= link_to 'Destroy', serf, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Serve', new_serf_path

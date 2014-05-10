@@ -1,0 +1,25 @@
+%p#notice= notice
+%p
+  %strong Player name:
+  = @serf.player_name
+%p
+  %strong Time 1:
+  = @serf.time_1
+%p
+  %strong Time 2:
+  = @serf.time_2
+%p
+  %strong Serve length:
+  = @serf.serve_length
+%p
+  %strong Serve spin:
+  = @serf.serve_spin
+%p
+  %strong Serve direction:
+  = @serf.serve_direction
+%p
+  %strong Player grip:
+  = @serf.player_grip
+= link_to 'Edit', edit_serf_path(@serf)
+|
+\#{link_to 'Back', serves_path}

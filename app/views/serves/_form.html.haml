@@ -1,0 +1,39 @@
+= form_for(@serf) do |f|
+  - if @serf.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@serf.errors.count, "error")
+        prohibited this serf from being saved:
+      %ul
+        - @serf.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :player_name
+    %br/
+    = f.text_field :player_name
+  .field
+    = f.label :time_1
+    %br/
+    = f.text_field :time_1
+  .field
+    = f.label :time_2
+    %br/
+    = f.text_field :time_2
+  .field
+    = f.label :serve_length
+    %br/
+    = f.text_field :serve_length
+  .field
+    = f.label :serve_spin
+    %br/
+    = f.text_field :serve_spin
+  .field
+    = f.label :serve_direction
+    %br/
+    = f.text_field :serve_direction
+  .field
+    = f.label :player_grip
+    %br/
+    = f.text_field :player_grip
+  .actions
+    = f.submit
