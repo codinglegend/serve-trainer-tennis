@@ -1,36 +1,55 @@
 
 .question-container
-  .question-data.text-center
+  .explanation
+    Watch the first half of the serve, and predict as much as you can about it. If you're confused about
+    what the choices mean, hover over "Length", "Direction" and "Spin" for an explanation.
   .loading.text-center
     Loading...
   .video-container
     %video
-.answer-choices
   .text-center
+    %button.start-video
+      Start
     %button.show-extra
       Show me a few milliseconds more!
+    %button.replay-video
+      Show me again!
   %br
-  .text-center
-    Predict as much as you can about the serve
-  %br
-  %table
-    %tr
-      %th Length
-      %th Spin
-      %th Direction
-    %tr
-      %td
-        %ul
-          %li Short
-          %li Long
-      %td
-        %ul
-          %li Topspin
-          %li Backspin
-      %td
-        %ul
-          %li Left
-          %li Middle
-          %li Right
+  .answer-choices
+    .length-choices
+      .choice-header{title: 'Does the serve bounce more than once on the receiver\'s side?'} Length
+      .choice-images
+        = image_tag 'short.png', 'data-choice' => 'length', 'data-answer' => 'short'
+        = image_tag 'long.png', 'data-choice' => 'length', 'data-answer' => 'long'
+    .direction-choices
+      .choice-header{title: 'Which part of the receiver\'s side of the table does the ball bounce on?'} Direction
+      .choice-images
+        = image_tag 'left.png', 'data-choice' => 'direction', 'data-answer' => 'left'
+        = image_tag 'middle.png', 'data-choice' => 'direction', 'data-answer' => 'middle'
+        = image_tag 'right.png', 'data-choice' => 'direction', 'data-answer' => 'right'
+    .spin-choices
+      .choice-header{title: 'What spin does the serving player impart to the ball?'} Spin
+      .choice-images
+        = image_tag 'topspin.png', 'data-choice' => 'spin', 'data-answer' => 'topspin'
+        = image_tag 'backspin.png', 'data-choice' => 'spin', 'data-answer' => 'backspin'
+    .text-center
+      %button.show-answer{title: 'Make your predictions before you click this'}
+        Did I get aced?
+  .result-success.text-center
+    %h3
+      Success!
+    You probably smashed that serve so hard you broke the ball and your opponent's spirit
+    %br
+    %br
+    %button.next-question
+      Next Serve
+  .result-failure.text-center
+    %h3
+      Missed!
+    Where'd the ball go?
+    %br
+    %br
+    %button.next-question
+      Next Serve
 
-
+.question-data.text-center
