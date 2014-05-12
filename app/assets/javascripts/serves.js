@@ -142,6 +142,8 @@ function punishFailure(){
 
 function cleanupBeforeQuestion(){
   $('.answer-choices').hide();
+  $('.show-extra').hide();
+  $('.replay-video').hide();
   $('.right').removeClass('right');
   $('.wrong').removeClass('wrong');
   $('.faded').removeClass('faded');
