@@ -14,6 +14,7 @@ class ServesController < ApplicationController
   end
 
   def quiz
+    @serve_count = Serve.count
   end
 
   def show_next
