@@ -1,5 +1,6 @@
 class ServesController < ApplicationController
   before_action :set_serve, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:quiz, :show_next, :show]
 
   # GET /serves
   # GET /serves.json

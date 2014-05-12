@@ -46,3 +46,4 @@ end
 
 gem 'paperclip', '~> 4.1'
 gem 'haml-rails'
+gem 'devise'
