@@ -174,6 +174,7 @@ function loadServe(){
   cleanupBeforeQuestion();
   $.get('/question/' + serve_id + '.json').done(function(serve){
     initializeServeDisplay(serve);
+    ga('send', 'pageview', '/serve/' + serve.id);
   }).error(function(){
     alert("The Serve ID you typed was not found in our database. Sorry!");
   });
