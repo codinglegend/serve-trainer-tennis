@@ -71,7 +71,8 @@ $(document).ready(function(){
 
     $('.show-answer').click(function(){
       state = 3;
-      $('.show-extra, .replay-video').hide();
+      $('.show-extra, .show-answer').hide();
+      $('.replay-video').show();
       pauseTime = 9999;
       videoPlayer.currentTime = 0;
       videoPlayer.play();
@@ -102,9 +103,9 @@ $(document).ready(function(){
       });
 
       if($('.right').length == 3){
-        window.setTimeout(celebrateSuccess, 3000);
+        celebrateSuccess();
       }else{
-        window.setTimeout(punishFailure, 3000);
+        punishFailure();
       }
 
       $('.answer-choices img:not(.toggled)').addClass('faded');
@@ -129,15 +130,11 @@ $(document).ready(function(){
 });
 
 function celebrateSuccess(){
-  $('.answer-choices').fadeOut('slow', function(){
-    $('.result-success').slideDown();
-  })
+  $('.result-success').slideDown();
 }
 
 function punishFailure(){
-  $('.answer-choices').fadeOut('slow', function(){
-    $('.result-failure').slideDown();
-  })
+  $('.result-failure').slideDown();
 }
 
 function cleanupBeforeQuestion(){
@@ -149,7 +146,7 @@ function cleanupBeforeQuestion(){
   $('.faded').removeClass('faded');
   $('.result-success, .result-failure').hide();
   $('.answer-choices .toggled').removeClass('toggled');
-  $('.show-answer').attr('disabled', 'disabled');
+  $('.show-answer').attr('disabled', 'disabled').show();
   pauseTime = 0;
   extraTime = 0;
   state = 0;
