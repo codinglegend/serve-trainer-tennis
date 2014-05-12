@@ -9,7 +9,7 @@
   .loading.text-center
     = image_tag 'ajax_loader.gif'
   .video-container
-    %video
+    %video{preload: :auto}
   .text-center
     %button.start-video
       Start
