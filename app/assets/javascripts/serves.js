@@ -43,7 +43,7 @@ $(document).ready(function(){
             $('.answer-choices').stop().fadeIn();
           }
         }
-      }, 50);
+      }, 35);
     });
 
     $('.next-question').click(function(){
