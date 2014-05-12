@@ -21,7 +21,7 @@ $(document).ready(function(){
     videoPlayer = $('video').get(0);
 
     $(videoPlayer).on('canplaythrough', function(){
-      $('.loading').text(' ');
+      $('.loading').hide();
       if(state === 0){
         $('.start-video').show();
       }
@@ -145,12 +145,12 @@ function cleanupBeforeQuestion(){
   pauseTime = 0;
   extraTime = 0;
   state = 0;
+  $('.loading').show();
 }
 
 function initializeServeDisplay(serve){
   currentServe = serve;
   $('.question-data').html('<p>Serve #' + serve.id + ' in our database, by player ' + serve.player_name + '</p>');
-  $('.loading').text('Loading...');
   videoPlayer.src = serve.video;
   pauseTime = serve.time_1;
   extraTime = serve.time_2;
