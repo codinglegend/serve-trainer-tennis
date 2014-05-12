@@ -160,6 +160,8 @@ function loadNextQuestion(){
   cleanupBeforeQuestion();
   $.get('/next').done(function(serve){
     initializeServeDisplay(serve)
+  }).error(function(){
+    loadNextQuestion();
   });
 }
 
