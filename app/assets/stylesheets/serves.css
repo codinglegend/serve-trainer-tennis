@@ -124,3 +124,10 @@ button:disabled{
   opacity: 0.6;
   padding: 2em 0;
 }
+
+#video-error{
+  width: 400px;
+  margin: auto;
+  font-size: 1.2em;
+  display: none;
+}

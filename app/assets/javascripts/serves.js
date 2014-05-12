@@ -27,6 +27,12 @@ $(document).ready(function(){
       }
     });
 
+    $(videoPlayer).on('error', function(){
+      $(videoPlayer).hide();
+      $('.loading').hide();
+      $('#video-error').show();
+    })
+
     $(videoPlayer).on('playing', function(){
       pauseCheck = window.setInterval(function() {
         if(videoPlayer.currentTime >= pauseTime) {
