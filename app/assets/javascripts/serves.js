@@ -147,15 +147,33 @@ function cleanupBeforeQuestion(){
   state = 0;
 }
 
+function initializeServeDisplay(serve){
+  currentServe = serve;
+  $('.question-data').html('<p>Serve #' + serve.id + ' in our database, by player ' + serve.player_name + '</p>');
+  $('.loading').text('Loading...');
+  videoPlayer.src = serve.video;
+  pauseTime = serve.time_1;
+  extraTime = serve.time_2;
+}
+
 function loadNextQuestion(){
   cleanupBeforeQuestion();
   $.get('/next').done(function(serve){
-    currentServe = serve;
-    $('.question-data').html('<p>Serve #' + serve.id + ' in our database, by player ' + serve.player_name + '</p>');
-    $('.loading').text('Loading...');
-    videoPlayer.src = serve.video;
-    pauseTime = serve.time_1;
-    extraTime = serve.time_2;
+    initializeServeDisplay(serve)
+  });
+}
+
+function loadServe(){
+  serve_id = 1;
+  if( parseInt($('#serve_id').val()) !== NaN && parseInt($('#serve_id').val()) > 0 ){
+    serve_id = parseInt($('#serve_id').val());
+  }
+
+  cleanupBeforeQuestion();
+  $.get('/question/' + serve_id + '.json').done(function(serve){
+    initializeServeDisplay(serve);
+  }).error(function(){
+    alert("The Serve ID you typed was not found in our database. Sorry!");
   });
 }
 

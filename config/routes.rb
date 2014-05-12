@@ -3,6 +3,7 @@ Servetrainer::Application.routes.draw do
   end
 
   get 'next' => 'serves#show_next', format: :json
+  get 'question/:id' => 'serves#show', format: :json
 
   root 'serves#quiz'
 

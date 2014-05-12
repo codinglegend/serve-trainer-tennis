@@ -56,3 +56,9 @@
       Next Serve
 
 .question-data.text-center
+
+.text-center
+  Load Serve #
+  = text_field_tag :serve_id, '', style: 'width: 50px'
+  %button.btn-minor{onclick: 'loadServe()'}
+    Load

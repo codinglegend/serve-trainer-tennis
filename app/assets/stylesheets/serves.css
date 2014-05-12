@@ -52,6 +52,10 @@ button:disabled{
   opacity: 0.3;
 }
 
+.btn-minor{
+  padding: 3px 5px;
+}
+
 .answer-choices{
   width: 100%;
   text-align: center;
