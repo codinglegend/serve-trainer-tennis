@@ -176,4 +176,3 @@ function loadServe(){
     alert("The Serve ID you typed was not found in our database. Sorry!");
   });
 }
-

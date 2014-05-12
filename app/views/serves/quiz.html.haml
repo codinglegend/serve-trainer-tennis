@@ -1,4 +1,12 @@
-
+#fb-root
+%script
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 .question-container
   .explanation
     Watch the first half of the serve, and predict as much as you can about it. If you're confused about
@@ -62,3 +70,11 @@
   = text_field_tag :serve_id, '', style: 'width: 50px'
   %button.btn-minor{onclick: 'loadServe()'}
     Load
+
+.blurb
+  This website is very much a work in progress, so please do give me your
+  feedback and whether you think it's interesting enough to keep working on at
+  %strong admin@rohitnair.net
+  %br
+  %br
+  .fb-like{'data-href' => 'http://ace.rohitnair.net', 'data-layout' => 'standard', 'data-action' => 'like', 'data-show-faces' => 'true', 'data-share' => 'true', 'style' => 'width: 300px; margin: 0 auto;'}
