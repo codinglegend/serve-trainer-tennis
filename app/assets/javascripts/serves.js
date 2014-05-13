@@ -19,7 +19,6 @@ var answer_direction = null;
 $(document).ready(function(){
   if($('.question-container').length > 0){
     videoPlayer = $('video').get(0);
-
     $(videoPlayer).on('canplaythrough', function(){
       $('.loading').hide();
       if(state === 0){
@@ -64,8 +63,15 @@ $(document).ready(function(){
       videoPlayer.play();
     });
 
-    $('.replay-video').click(function(){
+    $('.replay-normal').click(function(){
       videoPlayer.currentTime = 0;
+      videoPlayer.playbackRate = 1;
+      videoPlayer.play();
+    });
+
+    $('.replay-slow').click(function(){
+      videoPlayer.currentTime = 0;
+      videoPlayer.playbackRate = 0.35;
       videoPlayer.play();
     });
 
