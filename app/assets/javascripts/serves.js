@@ -2,14 +2,12 @@ var currentServe = null;
 var videoPlayer = null;
 var pauseCheck = null;
 var pauseTime = 0;
-var extraTime = 0;
 
 var state = 0;
 /*
 * 0 = pre-start
-* 1 = played first segment
-* 2 = played second segment
-* 3 = answered
+* 1 = showing first segment
+* 2 = answered
 */
 
 var answer_length = null;
@@ -19,6 +17,7 @@ var answer_direction = null;
 $(document).ready(function(){
   if($('.question-container').length > 0){
     videoPlayer = $('video').get(0);
+
     $(videoPlayer).on('canplaythrough', function(){
       $('.loading').hide();
       if(state === 0){
@@ -38,7 +37,7 @@ $(document).ready(function(){
           videoPlayer.pause();
           window.clearInterval(pauseCheck);
           if(state === 1){
-            $('.show-extra').show();
+            $('.replay-video').show();
             $('.answer-choices').stop().fadeIn();
           }
         }
@@ -55,14 +54,6 @@ $(document).ready(function(){
       state = 1;
     });
 
-    $('.show-extra').click(function(){
-      pauseTime = extraTime;
-      state = 2;
-      $(this).hide();
-      $('.replay-video').show();
-      videoPlayer.play();
-    });
-
     $('.replay-normal').click(function(){
       videoPlayer.currentTime = 0;
       videoPlayer.playbackRate = 1;
@@ -76,8 +67,8 @@ $(document).ready(function(){
     });
 
     $('.show-answer').click(function(){
-      state = 3;
-      $('.show-extra, .show-answer').hide();
+      state = 2;
+      $('.show-answer').hide();
       $('.replay-video').show();
       pauseTime = 9999;
       videoPlayer.currentTime = 0;
@@ -145,7 +136,6 @@ function punishFailure(){
 
 function cleanupBeforeQuestion(){
   $('.answer-choices').hide();
-  $('.show-extra').hide();
   $('.replay-video').hide();
   $('.right').removeClass('right');
   $('.wrong').removeClass('wrong');
@@ -154,7 +144,6 @@ function cleanupBeforeQuestion(){
   $('.answer-choices .toggled').removeClass('toggled');
   $('.show-answer').attr('disabled', 'disabled').show();
   pauseTime = 0;
-  extraTime = 0;
   state = 0;
   $('.loading').show();
 }
@@ -164,7 +153,6 @@ function initializeServeDisplay(serve){
   $('.question-data').html('<p>Serve #' + serve.id + ' in our database, by player ' + serve.player_name + '</p>');
   videoPlayer.src = serve.video;
   pauseTime = serve.time_1;
-  extraTime = serve.time_2;
   ga('send', 'pageview', '/serve/' + serve.id);
 }
 
