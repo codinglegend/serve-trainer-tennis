@@ -109,7 +109,7 @@ button:disabled{
   border-color: red !important;
 }
 
-.right{
+.right, .actual-answer{
   border-color: green !important;
 }
 

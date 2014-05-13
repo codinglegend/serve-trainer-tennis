@@ -99,13 +99,20 @@ $(document).ready(function(){
         }
       });
 
+      $('.answer-' + currentServe.serve_length).addClass('actual-answer');
+      $('.answer-' + currentServe.serve_spin).addClass('actual-answer');
+      $('.answer-' + currentServe.serve_direction).addClass('actual-answer');
+
+      console.log($('.answer-short'));
+
+
       if($('.right').length == 3){
         celebrateSuccess();
       }else{
         punishFailure();
       }
 
-      $('.answer-choices img:not(.toggled)').addClass('faded');
+      $('.answer-choices img:not(.toggled, .actual-answer)').addClass('faded');
     });
 
     $('.answer-choices img').click(function(){
@@ -140,6 +147,7 @@ function cleanupBeforeQuestion(){
   $('.right').removeClass('right');
   $('.wrong').removeClass('wrong');
   $('.faded').removeClass('faded');
+  $('.actual-answer').removeClass('actual-answer');
   $('.result-success, .result-failure').hide();
   $('.answer-choices .toggled').removeClass('toggled');
   $('.show-answer').attr('disabled', 'disabled').show();

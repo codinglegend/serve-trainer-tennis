@@ -35,19 +35,19 @@
     .length-choices
       .choice-header{title: 'Does the serve bounce more than once on the receiver\'s side?'} Length
       .choice-images
-        = image_tag 'short.png', 'data-choice' => 'length', 'data-answer' => 'short', 'title' => 'The serve will bounce multiple times on the receiver\'s side'
-        = image_tag 'long.png', 'data-choice' => 'length', 'data-answer' => 'long', 'title' => 'The serve will bounce only once on the receiver\'s side'
+        = image_tag 'short.png', 'data-choice' => 'length', 'data-answer' => 'short', 'title' => 'The serve will bounce multiple times on the receiver\'s side', class: 'answer-short'
+        = image_tag 'long.png', 'data-choice' => 'length', 'data-answer' => 'long', 'title' => 'The serve will bounce only once on the receiver\'s side', class: 'answer-long'
     .direction-choices
       .choice-header{title: 'Which part of the receiver\'s side of the table does the ball bounce on?'} Direction
       .choice-images
-        = image_tag 'left.png', 'data-choice' => 'direction', 'data-answer' => 'left', 'title' => 'If the receiver\'s side of the table was split into 3 sections, the serve will land on the left-most one'
-        = image_tag 'middle.png', 'data-choice' => 'direction', 'data-answer' => 'middle', 'title' => 'TIf the receiver\'s side of the table was split into 3 sections, the serve will land in the middle section'
-        = image_tag 'right.png', 'data-choice' => 'direction', 'data-answer' => 'right', 'title' => 'TIf the receiver\'s side of the table was split into 3 sections, the serve will land on the right-most one'
+        = image_tag 'left.png', 'data-choice' => 'direction', 'data-answer' => 'left', 'title' => 'If the receiver\'s side of the table was split into 3 sections, the serve will land on the left-most one', class: 'answer-left'
+        = image_tag 'middle.png', 'data-choice' => 'direction', 'data-answer' => 'middle', 'title' => 'TIf the receiver\'s side of the table was split into 3 sections, the serve will land in the middle section', class: 'answer-middle'
+        = image_tag 'right.png', 'data-choice' => 'direction', 'data-answer' => 'right', 'title' => 'TIf the receiver\'s side of the table was split into 3 sections, the serve will land on the right-most one', class: 'answer-right'
     .spin-choices
       .choice-header{title: 'What spin does the serving player impart to the ball?'} Spin
       .choice-images
-        = image_tag 'topspin.png', 'data-choice' => 'spin', 'data-answer' => 'topspin', 'title' => 'The serve will have topspin on it'
-        = image_tag 'backspin.png', 'data-choice' => 'spin', 'data-answer' => 'backspin', 'title' => 'The serve will have backspin on it'
+        = image_tag 'topspin.png', 'data-choice' => 'spin', 'data-answer' => 'topspin', 'title' => 'The serve will have topspin on it', class: 'answer-topspin'
+        = image_tag 'backspin.png', 'data-choice' => 'spin', 'data-answer' => 'backspin', 'title' => 'The serve will have backspin on it', class: 'answer-backspin'
     .text-center
       %button.show-answer{title: 'Make your predictions before you click this'}
         Did I get aced?
