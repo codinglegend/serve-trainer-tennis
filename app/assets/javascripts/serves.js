@@ -172,6 +172,22 @@ function loadServe(){
   });
 }
 
+var testVideo = null;
+var testPauseTime = 0;
+function testPause(){
+  testVideo = $('video').get(0);
+  testPauseTime = $('#pause_time').val();
+  console.log(testPauseTime);
+  testVideo.currentTime = 0;
+  testPauseCheck = window.setInterval(function() {
+    if(testVideo.currentTime >= testPauseTime) {
+      testVideo.pause();
+      window.clearInterval(testPauseCheck);
+    }
+  }, 35);
+  testVideo.play();
+}
+
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

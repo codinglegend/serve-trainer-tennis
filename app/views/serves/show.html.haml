@@ -19,9 +19,13 @@
   = @serve.player_grip
 
 %h4 Video
-%video{src: @serve.video.url, controls: ''}
+%video{src: @serve.video.url, controls: '', preload: :auto}
 %br
-
+%span
+  = text_field_tag :pause_time, @serve.time_1
+  %button{onclick: 'testPause()'}
+    Test Pause
+%br
 = link_to 'Edit', edit_serve_path(@serve)
 |
 \#{link_to 'Back', serves_path}
