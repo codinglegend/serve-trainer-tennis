@@ -2,6 +2,7 @@
 %table
   %thead
     %tr
+      %th ID
       %th Player name
       %th Time 1
       %th Serve length
@@ -14,6 +15,7 @@
   %tbody
     - @serves.each do |serve|
       %tr
+        %td= serve.id
         %td= serve.player_name
         %td= serve.time_1
         %td= serve.serve_length

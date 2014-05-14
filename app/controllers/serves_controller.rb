@@ -5,7 +5,7 @@ class ServesController < ApplicationController
   # GET /serves
   # GET /serves.json
   def index
-    @serves = Serve.all
+    @serves = Serve.order(id: :asc).all
   end
 
   # GET /serves/1
