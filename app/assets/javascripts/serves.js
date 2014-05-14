@@ -177,7 +177,6 @@ var testPauseTime = 0;
 function testPause(){
   testVideo = $('video').get(0);
   testPauseTime = $('#pause_time').val();
-  console.log(testPauseTime);
   testVideo.currentTime = 0;
   testPauseCheck = window.setInterval(function() {
     if(testVideo.currentTime >= testPauseTime) {
