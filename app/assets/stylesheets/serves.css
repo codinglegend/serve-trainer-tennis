@@ -64,20 +64,27 @@ button:disabled{
   display: none;
 }
 
-.length-choices{
-  width: 200px;
+.left-section{
+  width: 350px;
   display: inline-block;
+}
+
+.right-section{
+  width: 350px;
+  display: inline-block;
+}
+
+.length-choices{
+  width: 300px;
 }
 
 .direction-choices{
   width: 300px;
-  display: inline-block;
-  margin: 0 30px;
+  padding-bottom: 10px;
 }
 
 .spin-choices{
-  width: 200px;
-  display: inline-block;
+  width: 300px;
 }
 
 .choice-header{

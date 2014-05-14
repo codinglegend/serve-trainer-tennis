@@ -15,7 +15,7 @@ var state = 0;
 $(document).ready(function(){
   if($('.question-container').length > 0){
 
-    totalChoices = $('.answer-choices > div').length;
+    totalChoices = $('.choice-container').length;
     videoPlayer = $('video').get(0);
 
     $(videoPlayer).on('canplaythrough', function(){
