@@ -1,7 +1,8 @@
-var currentServe = null;
+var currentQuestion = null;
 var videoPlayer = null;
 var pauseCheck = null;
 var pauseTime = 0;
+var totalChoices = 0;
 
 var state = 0;
 /*
@@ -10,12 +11,11 @@ var state = 0;
 * 2 = answered
 */
 
-var answer_length = null;
-var answer_spin = null;
-var answer_direction = null;
 
 $(document).ready(function(){
   if($('.question-container').length > 0){
+
+    totalChoices = $('.answer-choices > div').length;
     videoPlayer = $('video').get(0);
 
     $(videoPlayer).on('canplaythrough', function(){
@@ -75,56 +75,14 @@ $(document).ready(function(){
       videoPlayer.play();
     });
 
-    $(videoPlayer).on('ended', function(){
-      $('.toggled').each(function(){
-        switch($(this).attr('data-choice')){
-          case 'length':
-            if(answer_length != currentServe.serve_length){
-              $(this).addClass('wrong');
-            }else{
-              $(this).addClass('right')
-            }; break;
-          case 'direction':
-            if(answer_direction != currentServe.serve_direction){
-              $(this).addClass('wrong');
-            }else{
-              $(this).addClass('right')
-            }; break;
-          case 'spin':
-            if(answer_spin != currentServe.serve_spin){
-              $(this).addClass('wrong');
-            }else{
-              $(this).addClass('right')
-            }; break;
-        }
-      });
-
-      $('.answer-' + currentServe.serve_length).addClass('actual-answer');
-      $('.answer-' + currentServe.serve_spin).addClass('actual-answer');
-      $('.answer-' + currentServe.serve_direction).addClass('actual-answer');
-
-      console.log($('.answer-short'));
-
-
-      if($('.right').length == 3){
-        celebrateSuccess();
-      }else{
-        punishFailure();
-      }
-
-      $('.answer-choices img:not(.toggled, .actual-answer)').addClass('faded');
-    });
+    $(videoPlayer).on('ended', checkAndDisplayAnswers);
 
     $('.answer-choices img').click(function(){
       $(this).siblings('.toggled').removeClass('toggled');
       $(this).addClass('toggled');
-      switch($(this).attr('data-choice')){
-        case 'length': answer_length = $(this).attr('data-answer'); break;
-        case 'direction': answer_direction = $(this).attr('data-answer'); break;
-        case 'spin': answer_spin = $(this).attr('data-answer'); break;
-      }
+      user_answers[$(this).attr('data-choice')] = $(this).attr('data-value');
 
-      if($('.toggled').length == 3){
+      if($('.toggled').length == totalChoices){
         $('.show-answer').removeAttr('disabled');
       }
     });
@@ -132,6 +90,31 @@ $(document).ready(function(){
     loadNextQuestion();
   }
 });
+
+function checkAndDisplayAnswers(){
+  $('.answer-choices img').each(function(){
+    // Check if selected option is correct and assign a class accordingly.
+    // Also add .actual-answer to the...actual answers
+    if($(this).attr('data-value') == currentQuestion[$(this).attr('data-choice')]){
+      $(this).addClass('actual-answer');
+      if($(this).hasClass('toggled')){
+        $(this).addClass('right');
+      }
+    }else{
+      if($(this).hasClass('toggled')){
+        $(this).addClass('wrong');
+      }
+    }
+  });
+
+  if($('.right').length == totalChoices){
+    celebrateSuccess();
+  }else{
+    punishFailure();
+  }
+
+  $('.answer-choices img:not(.toggled, .actual-answer)').addClass('faded');
+}
 
 function celebrateSuccess(){
   $('.result-success').slideDown();
@@ -151,13 +134,15 @@ function cleanupBeforeQuestion(){
   $('.result-success, .result-failure').hide();
   $('.answer-choices .toggled').removeClass('toggled');
   $('.show-answer').attr('disabled', 'disabled').show();
+
+  user_answers = new Object;
   pauseTime = 0;
   state = 0;
   $('.loading').show();
 }
 
 function initializeServeDisplay(serve){
-  currentServe = serve;
+  currentQuestion = serve;
   $('.question-data').html('<p>Serve #' + serve.id + ' in our database, by player ' + serve.player_name + '</p>');
   videoPlayer.src = serve.video;
   pauseTime = serve.time_1;
