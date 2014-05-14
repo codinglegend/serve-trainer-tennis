@@ -14,17 +14,11 @@
     = f.label :time_1
     = f.text_field :time_1
   .field
-    = f.label :serve_length
-    = f.select(:serve_length, ['short','long'])
-  .field
     = f.label :serve_spin
-    = f.select(:serve_spin, ['top-left', 'top-middle', 'top-right', 'left', 'none', 'right', 'bottom-left', 'bottom-middle', 'bottom-right'])
+    = f.select(:serve_spin, ['flat', 'slice', 'kick'])
   .field
     = f.label :serve_direction
-    = f.select(:serve_direction, ['left', 'middle', 'right'])
-  .field
-    = f.label :player_grip
-    = f.text_field :player_grip
+    = f.select(:serve_direction, ['out-wide', 'down-the-middle'])
   .field
     = f.label :video, "File"
     = f.file_field :video
