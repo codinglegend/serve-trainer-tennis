@@ -8,6 +8,7 @@
       %th Serve spin
       %th Serve direction
       %th Player grip
+      %th Visible
       %th
       %th
       %th
@@ -20,6 +21,7 @@
         %td= serve.serve_spin
         %td= serve.serve_direction
         %td= serve.player_grip
+        %td= serve.visible ? 'Yes' : 'No'
         %td= link_to 'Show', serve
         %td= link_to 'Edit', edit_serve_path(serve)
         %td= link_to 'Destroy', serve, method: :delete, data: { confirm: 'Are you sure?' }
