@@ -14,7 +14,7 @@ class ServesController < ApplicationController
   end
 
   def quiz
-    @serve_count = Serve.count
+    @serve_count = Serve.where(visible: true).count
   end
 
   def show_next
@@ -24,7 +24,7 @@ class ServesController < ApplicationController
     if offset >= total
       offset = 0
     end
-    @serve = Serve.order(created_at: :asc).limit(1).offset(offset).first
+    @serve = Serve.where(visible: true).order(created_at: :asc).limit(1).offset(offset).first
     session[:serve_offset] = offset + 1
 
     render 'show_next.json'
@@ -32,7 +32,7 @@ class ServesController < ApplicationController
 
   # GET /serves/new
   def new
-    @serve = Serve.new
+    @serve = Serve.new(visible: false)
   end
 
   # GET /serves/1/edit

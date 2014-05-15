@@ -20,6 +20,12 @@
     = f.label :serve_direction
     = f.select(:serve_direction, ['out-wide', 'down-the-middle'])
   .field
+    = f.label :visible
+    = f.radio_button :visible, true
+    Yes
+    = f.radio_button :visible, false
+    No
+  .field
     = f.label :video, "File"
     = f.file_field :video
   .actions
