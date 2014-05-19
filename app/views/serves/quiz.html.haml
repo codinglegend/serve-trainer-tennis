@@ -9,8 +9,8 @@
   }(document, 'script', 'facebook-jssdk'));
 .question-container
   .explanation
-    Watch the first half of the serve, and predict as much as you can about it. If you're confused about
-    what the choices mean, hover over "Length", "Direction" and "Spin" for an explanation. Note that the answers
+    Watch the serve up until the contact point, and predict as much as you can about it. If you're confused about
+    what the choices mean, hover over "Direction" and "Spin" for an explanation. Note that the answers
     are based on interpretation and things like precise direction and length could be
     debated. Luckily, this is a game and none of your answers really matter!
   %br
@@ -33,16 +33,16 @@
   %br
   .answer-choices
     .direction-choices.choice-container
-      .choice-header{title: 'Which part of the receiver\'s side of the court does the ball bounce on?'} Direction
+      .choice-header{title: 'Does the ball land closer to the middle line or closer to the outside line of the service box?'} Direction
       .choice-images
-        = image_tag 'out-wide.png', 'data-choice' => 'serve_direction', 'data-value' => 'out-wide', 'title' => ''
-        = image_tag 'down-the-middle.png', 'data-choice' => 'serve_direction', 'data-value' => 'down-the-middle', 'title' => ''
+        = image_tag 'out-wide.png', 'data-choice' => 'serve_direction', 'data-value' => 'out-wide', 'title' => 'The ball landed closer to the outside line of the service box'
+        = image_tag 'down-the-middle.png', 'data-choice' => 'serve_direction', 'data-value' => 'down-the-middle', 'title' => 'The ball landed near the middle line of the service box'
     .spin-choices.choice-container
-      .choice-header{title: 'What spin does the serving player impart to the ball?'} Spin
+      .choice-header{title: 'What spin did the serving player impart to the ball?'} Spin
       .choice-images
-        = image_tag 'flat.png', 'data-choice' => 'serve_spin', 'data-value' => 'flat', 'title' => ''
-        = image_tag 'slice.png', 'data-choice' => 'serve_spin', 'data-value' => 'slice', 'title' => ''
-        = image_tag 'kick.png', 'data-choice' => 'serve_spin', 'data-value' => 'kick', 'title' => ''
+        = image_tag 'flat.png', 'data-choice' => 'serve_spin', 'data-value' => 'flat', 'title' => 'Little to no spin'
+        = image_tag 'slice.png', 'data-choice' => 'serve_spin', 'data-value' => 'slice', 'title' => 'Sidespin'
+        = image_tag 'kick.png', 'data-choice' => 'serve_spin', 'data-value' => 'kick', 'title' => 'Heavy topspin'
     .text-center
       %br
       %button.show-answer{title: 'Make your predictions before you click this'}
