@@ -18,14 +18,8 @@ class ServesController < ApplicationController
   end
 
   def show_next
-
-    total = Serve.count
-    offset = session[:serve_offset] || 0
-    if offset >= total
-      offset = 0
-    end
-    @serve = Serve.where(visible: true).order(created_at: :asc).limit(1).offset(offset).first
-    session[:serve_offset] = offset + 1
+    @serve = Serve.where('visible = ? AND id <> ?', true, session[:last_serve_shown] || 0).order("RANDOM()").limit(1).first
+    session[:last_serve_shown] = @serve.id
 
     render 'show_next.json'
   end
