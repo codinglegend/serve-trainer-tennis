@@ -87,6 +87,6 @@ class ServesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def serve_params
-      params.require(:serve).permit(:player_name, :time_1, :visible, :serve_length, :serve_spin, :serve_direction, :player_grip, :video)
+      params.require(:serve).permit(:player_name, :time_1, :visible, :serve_spin, :serve_direction, :video)
     end
 end
