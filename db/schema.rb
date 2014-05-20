@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515094325) do
+ActiveRecord::Schema.define(version: 20140520145144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,8 @@ ActiveRecord::Schema.define(version: 20140515094325) do
   create_table "serves", force: true do |t|
     t.string   "player_name"
     t.decimal  "time_1"
-    t.string   "serve_length"
     t.string   "serve_spin"
     t.string   "serve_direction"
-    t.string   "player_grip"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "video_file_name"
