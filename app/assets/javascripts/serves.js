@@ -71,8 +71,10 @@ $(document).ready(function(){
       $('.show-answer').hide();
       $('.replay-video').show();
       pauseTime = 9999;
-      videoPlayer.currentTime = 0;
-      videoPlayer.play();
+      $("html, body").animate({ scrollTop: 0 }, "fast", "swing", function(){
+        videoPlayer.currentTime = 0;
+        videoPlayer.play();
+      });
     });
 
     $(videoPlayer).on('ended', checkAndDisplayAnswers);
